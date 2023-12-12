@@ -33,6 +33,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile3`, function (sprite, l
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.collectibleBlueCrystal, function (sprite, location) {
     tiles.setCurrentTilemap(tilemap`level7`)
+    tiles.placeOnRandomTile(mySprite, assets.tile`myTile0`)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
     info.changeLifeBy(-1)
@@ -330,22 +331,26 @@ forever(function () {
 })
 forever(function () {
     projectile7 = sprites.createProjectileFromSprite(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
+        ....9.....9....9....
+        ....9.....99...9....
+        ....99.....9..99....
+        .....99....99.9.....
+        999...9.....999.....
+        ..99999......9.....9
+        ......99....99....99
+        99.....9....9....99.
+        .999...999.9999..9..
+        ...99....999..999999
+        ....99999999.......9
+        99999....999........
+        .........9.9........
+        ........99.99.......
+        .......99...99.....9
+        ......99.....9999999
+        ....999.......9.....
+        ..999.9.......99....
+        999...9........9....
+        9.....9......9999...
         `, mySprite3, 0, 0)
     pause(1000)
     sprites.destroy(projectile7)
