@@ -1,3 +1,6 @@
+namespace SpriteKind {
+    export const lighting = SpriteKind.create()
+}
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile1`, function (sprite, location) {
     info.changeLifeBy(-1)
     tiles.setCurrentTilemap(tilemap`level1`)
@@ -12,10 +15,21 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile3`, function (sprite, l
     tiles.setCurrentTilemap(tilemap`level3`)
     tiles.placeOnRandomTile(mySprite, assets.tile`myTile0`)
 })
-scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile2`, function (sprite, location) {
-    tiles.setCurrentTilemap(tilemap`level2`)
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
+    info.changeLifeBy(-1)
+    tiles.setCurrentTilemap(tilemap`level1`)
     tiles.placeOnRandomTile(mySprite, assets.tile`myTile0`)
 })
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile2`, function (sprite, location) {
+    tiles.setCurrentTilemap(tilemap`level2`)
+    lighting = sprites.create(img`
+        d 
+        `, SpriteKind.lighting)
+    tiles.placeOnRandomTile(mySprite, assets.tile`myTile0`)
+    tiles.placeOnRandomTile(lighting, assets.tile`myTile4`)
+})
+let projectile: Sprite = null
+let lighting: Sprite = null
 let mySprite: Sprite = null
 mySprite = sprites.create(img`
     . . . . . . 9 . . . . . . 
@@ -113,3 +127,26 @@ tiles.setCurrentTilemap(tilemap`level1`)
 tiles.placeOnRandomTile(mySprite, assets.tile`myTile0`)
 info.setLife(9)
 scene.cameraFollowSprite(mySprite)
+forever(function () {
+    projectile = sprites.createProjectileFromSprite(img`
+        . . 9 . . . . . 9 . . 9 . . . . 
+        . . . 9 . . . 9 . . . 9 . . . . 
+        . . . 9 . . 9 . . . 9 . . . . . 
+        . . . . 9 . 9 . . . . 9 . . . . 
+        . . . . . 9 . . . . . 9 . . 9 9 
+        . . . . . . 9 . . . . . 9 9 . . 
+        9 9 . . . . 9 . . 9 9 9 . . . . 
+        . . 9 9 . . . 9 9 . . . . . . . 
+        . . . . 9 9 . 9 9 . 9 9 . . . . 
+        . . . . . . 9 . . 9 . . 9 . . . 
+        . . . . . . 9 . . 9 . . . 9 9 . 
+        . . . . . 9 . . . . 9 . . . . 9 
+        . . . . . 9 . . . . 9 . . . . . 
+        . . . . 9 . . . . 9 . 9 . . . . 
+        . . . . 9 . . . 9 . . 9 . . . . 
+        . . . 9 . . . . 9 . . 9 . . . . 
+        `, lighting, 0, 0)
+    pause(500)
+    sprites.destroy(projectile)
+    pause(2000)
+})
