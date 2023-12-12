@@ -4,6 +4,7 @@ namespace SpriteKind {
     export const lighting3 = SpriteKind.create()
     export const lighting4 = SpriteKind.create()
     export const lighting5 = SpriteKind.create()
+    export const lighting6 = SpriteKind.create()
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile1`, function (sprite, location) {
     info.changeLifeBy(-1)
@@ -69,12 +70,24 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile5`, function (sprite, l
         8 
         `, SpriteKind.lighting5)
     tiles.placeOnRandomTile(lighting_5, assets.tile`myTile12`)
+    mySprite2 = sprites.create(img`
+        a 
+        `, SpriteKind.lighting6)
+    tiles.placeOnRandomTile(mySprite2, assets.tile`myTile13`)
+    mySprite3 = sprites.create(img`
+        4 
+        `, SpriteKind.lighting)
+    tiles.placeOnRandomTile(mySprite3, assets.tile`myTile14`)
 })
+let projectile7: Sprite = null
+let projectile6: Sprite = null
 let projectile5: Sprite = null
 let projectile4: Sprite = null
 let projectile3: Sprite = null
 let projectile: Sprite = null
 let projectile2: Sprite = null
+let mySprite3: Sprite = null
+let mySprite2: Sprite = null
 let lighting_5: Sprite = null
 let lighting_4: Sprite = null
 let lighting_3: Sprite = null
@@ -286,5 +299,55 @@ forever(function () {
         `, lighting_5, 0, 0)
     pause(1000)
     sprites.destroy(projectile5)
+    pause(3000)
+})
+forever(function () {
+    projectile6 = sprites.createProjectileFromSprite(img`
+        ....9.....9....9....
+        ....9.....99...9....
+        ....99.....9..99....
+        .....99....99.9.....
+        999...9.....999.....
+        ..99999......9.....9
+        ......99....99....99
+        99.....9....9....99.
+        .999...999.9999..9..
+        ...99....999..999999
+        ....99999999.......9
+        99999....999........
+        .........9.9........
+        ........99.99.......
+        .......99...99.....9
+        ......99.....9999999
+        ....999.......9.....
+        ..999.9.......99....
+        999...9........9....
+        9.....9......9999...
+        `, mySprite2, 0, 0)
+    pause(1000)
+    sprites.destroy(projectile6)
+    pause(3000)
+})
+forever(function () {
+    projectile7 = sprites.createProjectileFromSprite(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, mySprite3, 0, 0)
+    pause(1000)
+    sprites.destroy(projectile7)
     pause(3000)
 })
