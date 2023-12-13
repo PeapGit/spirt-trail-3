@@ -10,8 +10,11 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile1`, function (sprite, l
     info.changeLifeBy(-1)
     tiles.setCurrentTilemap(tilemap`level1`)
     tiles.placeOnRandomTile(mySprite, assets.tile`myTile0`)
-    sprites.destroy(lighting)
-    sprites.destroy(lighting2)
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile19`, function (sprite, location) {
+    info.changeLifeBy(-1)
+    tiles.setCurrentTilemap(tilemap`level9`)
+    tiles.placeOnRandomTile(mySprite, assets.tile`myTile0`)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile`, function (sprite, location) {
     info.changeLifeBy(-1)
@@ -37,6 +40,16 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile3`, function (sprite, l
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.collectibleBlueCrystal, function (sprite, location) {
     tiles.setCurrentTilemap(tilemap`level7`)
+    tiles.placeOnRandomTile(mySprite, assets.tile`myTile0`)
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile16`, function (sprite, location) {
+    info.changeLifeBy(-1)
+    tiles.setCurrentTilemap(tilemap`level9`)
+    tiles.placeOnRandomTile(mySprite, assets.tile`myTile0`)
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile20`, function (sprite, location) {
+    info.changeScoreBy(1)
+    tiles.setCurrentTilemap(tilemap`level12`)
     tiles.placeOnRandomTile(mySprite, assets.tile`myTile0`)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
