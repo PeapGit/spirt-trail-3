@@ -42,6 +42,9 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.collectibleBlueCrystal, f
     tiles.setCurrentTilemap(tilemap`level7`)
     tiles.placeOnRandomTile(mySprite, assets.tile`myTile0`)
 })
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile21`, function (sprite, location) {
+    tiles.setCurrentTilemap(tilemap`level14`)
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile16`, function (sprite, location) {
     info.changeLifeBy(-1)
     tiles.setCurrentTilemap(tilemap`level9`)
