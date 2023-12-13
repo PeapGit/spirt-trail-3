@@ -19,6 +19,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile`, function (sprite, lo
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile15`, function (sprite, location) {
     tiles.setCurrentTilemap(tilemap`level10`)
+    tiles.placeOnRandomTile(mySprite, assets.tile`myTile0`)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile9`, function (sprite, location) {
     tiles.setCurrentTilemap(tilemap`level9`)
