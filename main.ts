@@ -32,7 +32,10 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile22`, function (sprite, 
     sprites.destroy(my_enemy)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile24`, function (sprite, location) {
-	
+    info.changeScoreBy(1)
+    tiles.setCurrentTilemap(tilemap`level19`)
+    tiles.placeOnRandomTile(mySprite, assets.tile`myTile0`)
+    sprites.destroy(my_enemy)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile9`, function (sprite, location) {
     tiles.setCurrentTilemap(tilemap`level9`)
@@ -141,7 +144,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile21`, function (sprite, 
         ..............................22222222222222222222222222222.....................
         `, SpriteKind.Enemy)
     tiles.placeOnRandomTile(my_enemy, assets.tile`myTile23`)
-    my_enemy.follow(mySprite, 35)
+    my_enemy.follow(mySprite, 38)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile16`, function (sprite, location) {
     info.changeLifeBy(-1)
@@ -288,7 +291,7 @@ mySprite,
 200,
 true
 )
-tiles.setCurrentTilemap(tilemap`level12`)
+tiles.setCurrentTilemap(tilemap`level1`)
 tiles.placeOnRandomTile(mySprite, assets.tile`myTile0`)
 info.setLife(9)
 scene.cameraFollowSprite(mySprite)
