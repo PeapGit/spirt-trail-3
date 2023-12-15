@@ -37,6 +37,9 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile24`, function (sprite, 
     tiles.placeOnRandomTile(mySprite, assets.tile`myTile0`)
     sprites.destroy(my_enemy)
 })
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile25`, function (sprite, location) {
+    tiles.setCurrentTilemap(tilemap`level20`)
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile9`, function (sprite, location) {
     tiles.setCurrentTilemap(tilemap`level9`)
     info.changeScoreBy(1)
