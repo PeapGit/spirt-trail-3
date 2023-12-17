@@ -6,6 +6,7 @@ namespace SpriteKind {
     export const lighting5 = SpriteKind.create()
     export const lighting6 = SpriteKind.create()
     export const lighting7 = SpriteKind.create()
+    export const rift = SpriteKind.create()
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile1`, function (sprite, location) {
     info.changeLifeBy(-1)
@@ -39,6 +40,12 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile24`, function (sprite, 
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile25`, function (sprite, location) {
     tiles.setCurrentTilemap(tilemap`level20`)
+    tiles.placeOnRandomTile(mySprite, assets.tile`myTile0`)
+    rift = sprites.create(img`
+        f 
+        `, SpriteKind.Enemy)
+    rift.follow(mySprite, 20)
+    tiles.placeOnRandomTile(rift, assets.tile`myTile29`)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile9`, function (sprite, location) {
     tiles.setCurrentTilemap(tilemap`level9`)
@@ -204,6 +211,21 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile5`, function (sprite, l
         `, SpriteKind.lighting7)
     tiles.placeOnRandomTile(mySprite3, assets.tile`myTile14`)
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.rift, function (sprite, otherSprite) {
+    info.changeLifeBy(-1)
+    tiles.setCurrentTilemap(tilemap`level19`)
+    tiles.placeOnRandomTile(mySprite, assets.tile`myTile0`)
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile26`, function (sprite, location) {
+    info.changeLifeBy(-1)
+    tiles.setCurrentTilemap(tilemap`level19`)
+    tiles.placeOnRandomTile(mySprite, assets.tile`myTile0`)
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile28`, function (sprite, location) {
+    info.changeScoreBy(3)
+    tiles.setCurrentTilemap(tilemap`level1`)
+    tiles.placeOnRandomTile(mySprite, assets.tile`myTile0`)
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     info.changeLifeBy(-1)
     tiles.setCurrentTilemap(tilemap`level12`)
@@ -217,6 +239,7 @@ let projectile4: Sprite = null
 let projectile3: Sprite = null
 let projectile: Sprite = null
 let projectile2: Sprite = null
+let projectile8: Sprite = null
 let mySprite3: Sprite = null
 let mySprite2: Sprite = null
 let lighting_5: Sprite = null
@@ -224,6 +247,7 @@ let lighting_4: Sprite = null
 let lighting_3: Sprite = null
 let lighting2: Sprite = null
 let lighting: Sprite = null
+let rift: Sprite = null
 let my_enemy: Sprite = null
 let mySprite: Sprite = null
 mySprite = sprites.create(img`
@@ -298,6 +322,42 @@ tiles.setCurrentTilemap(tilemap`level1`)
 tiles.placeOnRandomTile(mySprite, assets.tile`myTile0`)
 info.setLife(9)
 scene.cameraFollowSprite(mySprite)
+forever(function () {
+    projectile8 = sprites.createProjectileFromSprite(img`
+        ......fffffffffffffffffff.....
+        .....fffffff1fff8ffffffffff...
+        ...ffffff8fffffffffffff1fffff.
+        ..fffffffffff9ffffff9fffffffff
+        .fffff9fffffffffffffffffffffff
+        .ffffffffffffffffffffffff8ffff
+        ffff8fffff9fffff9fffffffffffff
+        fffffffffffff1fffff8ff8fffff1f
+        ffff9ffffffffffffffffffff9ffff
+        f9ffffffff8fffffffffffffffffff
+        fffffff9fffffff8ffffffffffffff
+        ffffffffffffffffffff9fffffffff
+        fffffffffff9fffffffffffffff9ff
+        ff9ff8fffffffffff1ffffffffffff
+        ffffffff9ffffff9ffff8fff8fffff
+        fffffffffff8ffffffffffffffffff
+        fff1ffffffffffffffffffffff1fff
+        ffffffffffffffff9ffffff9ffffff
+        9ffffff8ffffffffffffffffffff9f
+        ffff9fffff9fff8fffffffffffffff
+        fffffffffffffffffff9ff8fffffff
+        ffffffffffffffffffffffffffffff
+        fffff8ffffffffffffffffff9fffff
+        fffffffff8ff1ff9fffffffffffff.
+        .ffffff9fffffffffffffffffffff.
+        .ff1fffffffffffffff9ff8ffffff.
+        ..ffffffffffffffffffffffffff..
+        ..ffffff8ffff9ff8fffffff1ff...
+        ...fffffffffffffffff9ffffff...
+        .....fffff1fffffffffffffff....
+        `, rift, 0, 0)
+    pause(5000)
+    sprites.destroy(projectile8)
+})
 forever(function () {
     projectile2 = sprites.createProjectileFromSprite(img`
         ....9.....9....9....
