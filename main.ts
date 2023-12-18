@@ -398,58 +398,58 @@ controller.moveSprite(mySprite, 70, 70)
 animation.runImageAnimation(
 mySprite,
 [img`
-    . . . . . 9 . . . . . 
-    . . . . 9 8 9 . . . . 
-    . . . . 9 8 9 . . . . 
-    . . . 9 8 8 8 9 . . . 
-    . 9 9 8 9 8 9 8 9 9 . 
+    f f f f f 9 f f f f f 
+    f f f f 9 8 9 f f f f 
+    f f f f 9 8 9 f f f f 
+    f f f 9 8 8 8 9 f f f 
+    f 9 9 8 9 8 9 8 9 9 f 
     9 8 8 8 9 8 9 8 8 8 9 
-    . 9 9 8 9 8 9 8 9 9 . 
-    . . . 9 8 8 8 9 . . . 
-    . . . . 9 8 9 . . . . 
-    . . . . 9 8 9 . . . . 
-    . . . . . 9 . . . . . 
+    f 9 9 8 9 8 9 8 9 9 f 
+    f f f 9 8 8 8 9 f f f 
+    f f f f 9 8 9 f f f f 
+    f f f f 9 8 9 f f f f 
+    f f f f f 9 f f f f f 
     `,img`
-    . . . . . . . . . . . 
-    . . . . . 9 . . . . . 
-    . . 9 . 9 8 9 . 9 . . 
-    . . . 9 8 8 8 9 . . . 
-    . . 9 8 9 8 9 8 9 . . 
-    . 9 8 8 9 8 9 8 8 9 . 
-    . . 9 8 9 8 9 8 9 . . 
-    . . . 9 8 8 8 9 . . . 
-    . . 9 . 9 8 9 . 9 . . 
-    . . . . . 9 . . . . . 
-    . . . . . . . . . . . 
+    f f f f f f f f f f f 
+    f f f f f 9 f f f f f 
+    f f 9 f 9 8 9 f 9 f f 
+    f f f 9 8 8 8 9 f f f 
+    f f 9 8 9 8 9 8 9 f f 
+    f 9 8 8 9 8 9 8 8 9 f 
+    f f 9 8 9 8 9 8 9 f f 
+    f f f 9 8 8 8 9 f f f 
+    f f 9 f 9 8 9 f 9 f f 
+    f f f f f 9 f f f f f 
+    f f f f f f f f f f f 
     `,img`
-    . . . . . . . . . . . 
-    . 9 9 . . . . . 9 9 . 
-    . 9 8 9 9 . 9 9 8 9 . 
-    . . 9 8 8 8 8 8 9 . . 
-    . . 9 8 9 8 9 8 9 . . 
-    . . . 8 9 8 9 8 . . . 
-    . . 9 8 9 8 9 8 9 . . 
-    . . 9 8 8 8 8 8 9 . . 
-    . 9 8 9 9 . 9 9 8 9 . 
-    . 9 9 . . . . . 9 9 . 
-    . . . . . . . . . . . 
+    f f f f f f f f f f f 
+    f 9 9 f f f f f 9 9 f 
+    f 9 8 9 9 f 9 9 8 9 f 
+    f f 9 8 8 8 8 8 9 f f 
+    f f 9 8 9 8 9 8 9 f f 
+    f f f 8 9 8 9 8 f f f 
+    f f 9 8 9 8 9 8 9 f f 
+    f f 9 8 8 8 8 8 9 f f 
+    f 9 8 9 9 f 9 9 8 9 f 
+    f 9 9 f f f f f 9 9 f 
+    f f f f f f f f f f f 
     `,img`
-    . . . . . 9 . . . . . 
-    . 9 . . 9 8 9 . . 9 . 
-    . . . 9 8 8 8 9 . . . 
-    . . 9 8 8 8 8 8 9 . . 
-    . 9 8 8 9 8 9 8 8 9 . 
+    f f f f f 9 f f f f f 
+    f 9 f f 9 8 9 f f 9 f 
+    f f f 9 8 8 8 9 f f f 
+    f f 9 8 8 8 8 8 9 f f 
+    f 9 8 8 9 8 9 8 8 9 f 
     9 8 8 8 9 8 9 8 8 8 9 
-    . 9 8 8 9 8 9 8 8 9 . 
-    . . 9 8 8 8 8 8 9 . . 
-    . . . 9 8 8 8 9 . . . 
-    . 9 . . 9 8 9 . . 9 . 
-    . . . . . 9 . . . . . 
+    f 9 8 8 9 8 9 8 8 9 f 
+    f f 9 8 8 8 8 8 9 f f 
+    f f f 9 8 8 8 9 f f f 
+    f 9 f f 9 8 9 f f 9 f 
+    f f f f f 9 f f f f f 
     `],
 200,
 true
 )
-tiles.setCurrentTilemap(tilemap`level19`)
+tiles.setCurrentTilemap(tilemap`level1`)
 tiles.placeOnRandomTile(mySprite, assets.tile`myTile0`)
 info.setLife(9)
 scene.cameraFollowSprite(mySprite)
