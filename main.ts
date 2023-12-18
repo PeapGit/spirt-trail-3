@@ -356,6 +356,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile28`, function (sprite, 
     info.changeScoreBy(3)
     tiles.setCurrentTilemap(tilemap`level1`)
     tiles.placeOnRandomTile(mySprite, assets.tile`myTile0`)
+    sprites.destroy(rift)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     info.changeLifeBy(-1)
@@ -448,7 +449,7 @@ mySprite,
 200,
 true
 )
-tiles.setCurrentTilemap(tilemap`level1`)
+tiles.setCurrentTilemap(tilemap`level19`)
 tiles.placeOnRandomTile(mySprite, assets.tile`myTile0`)
 info.setLife(9)
 scene.cameraFollowSprite(mySprite)
